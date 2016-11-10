@@ -11,4 +11,10 @@ public class SunCollect : MonoBehaviour {
         // Destroy Sun
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "bounds")
+            Destroy(gameObject);
+    }
 }

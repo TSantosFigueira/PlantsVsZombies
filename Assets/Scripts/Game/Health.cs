@@ -15,6 +15,8 @@ public class Health : MonoBehaviour {
         {
             if (gameObject.tag == "enemy")
                 VictoryController.enemies_killed++;
+            if (gameObject.tag == "tower")
+                gameObject.GetComponentInParent<SpawnTower>().isTaken = false;
 
             Destroy(gameObject);
         }

@@ -15,7 +15,7 @@ public class VictoryController : MonoBehaviour {
 
     void Start () {
         enemies_killed = 0; 
-        difficulty = PlayerPrefs.GetInt("difficulty", 1);
+        difficulty = PlayerPrefs.GetInt("difficulty", 2);
         anim = panel.GetComponent<Animator>();
     }
 
@@ -27,11 +27,11 @@ public class VictoryController : MonoBehaviour {
         else if (difficulty == 3 && enemies_killed >= 80) //hard
             Victory();
 
-        if(EnemyDamage.crossedBounds > 7) //easy
+        if(difficulty == 1 && Bounds.crossedBounds >= 7) //easy
             Defeat();
-        else if (EnemyDamage.crossedBounds > 5) //normal
+        else if (difficulty == 2 && Bounds.crossedBounds >= 5) //normal
             Defeat();
-        else if (EnemyDamage.crossedBounds > 2) //hard
+        else if (difficulty == 3 && Bounds.crossedBounds >= 2) //hard
             Defeat();
     }
 
