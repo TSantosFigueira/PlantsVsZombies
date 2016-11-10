@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5b81b0a88f33c4eacc70fee7614e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 2
   projectile: {fileID: 1000010464781452, guid: 6f3f4304f4b87f24b94626bf256e43e4, type: 2}
 --- !u!212 &212000010646666412
 SpriteRenderer:

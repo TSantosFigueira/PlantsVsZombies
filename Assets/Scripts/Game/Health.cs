@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Health : MonoBehaviour {
 
-    [SerializeField]
-    int currentHealth = 100;
+    public int currentHealth = 100;
+    private EnemyMove move;
+    private Animator anim;
 
     public void DoDamage (int damage)
     {
@@ -12,6 +13,9 @@ public class Health : MonoBehaviour {
 
         if(currentHealth <= 0)
         {
+            if (gameObject.tag == "enemy")
+                VictoryController.enemies_killed++;
+
             Destroy(gameObject);
         }
     }

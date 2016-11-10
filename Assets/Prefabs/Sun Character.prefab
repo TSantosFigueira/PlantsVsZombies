@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000013935319962}
   m_Layer: 0
   m_Name: Sun Character
-  m_TagString: Untagged
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000011753213248, guid: 1e99dbf9b9301a94b8d6e94f9302b287, type: 2}
+  spawnTime: 5
 --- !u!212 &212000013577114980
 SpriteRenderer:
   m_ObjectHideFlags: 1

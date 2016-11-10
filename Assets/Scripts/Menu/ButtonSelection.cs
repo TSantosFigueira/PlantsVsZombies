@@ -10,6 +10,7 @@ public class ButtonSelection : MonoBehaviour {
     {
         if(num <= buttons.Length)
         {
+            PlayerPrefs.SetInt("difficulty", num);
             for (int i = 0; i < buttons.Length; i++)
             {
                 if (i != (num - 1))
@@ -17,8 +18,7 @@ public class ButtonSelection : MonoBehaviour {
                     var colors = buttons[i].GetComponent<Button>().colors;
                     colors.normalColor = Color.grey;
                     buttons[i].GetComponent<Button>().colors = colors;
-                }
-                   
+                }   
             }
         }
     }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour {
 
     public GameObject pausePanel;
+    public Sprite logo;
+    public Image logoImage;
     private Animator anim;
 
 	// Use this for initialization
@@ -14,6 +17,7 @@ public class PauseController : MonoBehaviour {
     public void SetPaused()
     {
         anim.SetBool("Display", true);
+        logoImage.sprite = logo;
         StartCoroutine(WaitThenDoThings(anim.GetCurrentAnimatorClipInfo(0).Length));
     }
 

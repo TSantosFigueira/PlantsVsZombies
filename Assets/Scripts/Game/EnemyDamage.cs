@@ -1,31 +1,68 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyDamage : MonoBehaviour {
+public class EnemyDamage : MonoBehaviour
+{
 
     private EnemyMove enemyMove;
+    private Animator anim;
     public int damage;
+    public static int crossedBounds;
 
-	void Start () {
-        enemyMove = gameObject.GetComponent<EnemyMove>();
-	}
+    void Start()
+    {
+        enemyMove = GetComponent<EnemyMove>();
+        anim = GetComponent<Animator>();
+        crossedBounds = 0;
+        enemyMove.canMove = true;
+    }
 
-	void Update () {
+    void Update()
+    {
+    }
 
-        Collider2D[] inside = Physics2D.OverlapCircleAll(transform.position, .5f);
-
-        for (int i = 0; i < inside.Length; i++)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.tag == "tower" && enemyMove.canMove)
         {
-            if (inside[i].transform.tag == "tower")
+            anim.SetBool("Attack", true);
+        }
+        else if (other.transform.tag == "tile")
+        {
+            enemyMove.canMove = true;
+        }
+        else if (other.transform.tag == "bounds")
+            crossedBounds++;
+
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.transform.tag == "tower")
+        {
+            Health health = other.transform.gameObject.GetComponent<Health>();
+            if (health.currentHealth >= 0)
             {
-                Health health = inside[i].transform.gameObject.GetComponent<Health>();
-                health.DoDamage(damage);
+                StartCoroutine(WaitThenDoThings(health, anim.GetCurrentAnimatorClipInfo(0).Length));
                 enemyMove.canMove = false;
             }
-            else
-            {
-                enemyMove.canMove = true;
-            }
-        }        
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.transform.tag == "tower")
+        {
+            anim.SetBool("Attack", false);
+            enemyMove.canMove = true;
+        }
+        
+    }
+
+    IEnumerator WaitThenDoThings(Health localHealth, float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (localHealth)
+            localHealth.DoDamage(damage);
     }
 }

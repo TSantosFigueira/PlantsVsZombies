@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1000010464781452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.448014, y: -4.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b49208ead424848b2900f68d00378d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  damage: 3
+  speed: 5
+  damage: 50
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &212000012985567462
 SpriteRenderer:
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -192431391
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: e946f9cad561116408af2f2e0e7c13d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
